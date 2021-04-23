@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>
+				The Student Learner Registration
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+
+<body>
+
+		<h1>Course Registration in institute</h1><br>
+
+<form name="Registration" method="Post">
+		Enter The Student Name:<input type="text" name="sname"><br>
+		Enter The Course Name:<input type="text" name="cname"><br>
+		Enter The Mobile Number:<input type="number" name="phnnum"><br>
+		<input type="submit" name="SUBMIT">
+</form>
+
+	<?php  
+	$reg_no="123ABC";
+	$name=@$_POST["sname"];
+	if(!preg_match("/^[a-zA-z]*$/",$name)){
+		$ErrMsg="Only alphabets and whitespace is allowed.";
+		echo $ErrMsg;
+
+	}
+	else{
+		
+	}
+	?>
+
+	<?php
+	$mobileno=@$_POST["phnnum"];
+	if(!preg_match("/^[0-9]*$/",$mobileno)){
+		$Errmsg="only numeric value is allowed.";
+		echo $Errmsg;
+	}
+	else{
+		echo 'Regitser Number:-'.$reg_no."<br>";
+		echo 'Student Name:-'.$name."<br>"; 
+		echo 'Mobile Numbwe:-'.$mobileno."<br>";
+	}
+	?>

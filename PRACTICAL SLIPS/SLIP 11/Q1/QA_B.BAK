@@ -1,0 +1,90 @@
+#include<stdio.h>
+#include<conio.h>
+struct queue
+{
+int no;
+struct queue *next;
+}*start=NULL;
+void insert();
+void delete();
+void display();
+void main()
+{
+int choice;
+char ch='y';
+clrscr();
+do
+{
+printf("\n1:insert\n");
+printf("\n2:delete\n");
+printf("\n3:display\n");
+printf("\n4:exit\n");
+printf("\nenter your choice:-");
+scanf("\n%d",&choice);
+switch(choice)
+{
+case 1:insert();
+       break;
+case 2:delete();
+       break;
+case 3:display();
+       break;
+case 4:exit();
+default:printf("\nyou entered wrong choice");
+}
+printf("\ndo you want to continue(Y|N):-");
+scanf("%s",&ch);
+}while(ch=='y'||ch=='Y');
+getch();
+}
+void insert()
+{
+struct queue *p,*temp;
+temp=start;
+p=(struct queue *)malloc(sizeof(struct queue));
+printf("\nenter the element:-");
+scanf("%d",&p->no);
+p->next=NULL;
+if(start==NULL)
+start=p;
+else
+{
+while(temp->next!=NULL)
+{
+temp=temp->next;
+}
+temp->next=p;
+}
+}
+void delete()
+{
+struct queue *temp;
+int value;
+if(start==NULL)
+printf("\nQueue is empty");
+else
+{
+temp=start;
+value=temp->no;
+printf("\nthe deleted element is :-%d",value);
+start=start->next;
+free(temp);
+}
+}
+void display()
+{
+struct queue *temp;
+temp=start;
+if(start==NULL)
+printf("\nQueue is empty");
+else
+{
+printf("\nthe element in Queue are:-\n");
+while(temp->next!=NULL)
+{
+printf("%d\n",temp->no);
+temp=temp->next;
+}
+printf("%d\n",temp->no);
+}
+}
