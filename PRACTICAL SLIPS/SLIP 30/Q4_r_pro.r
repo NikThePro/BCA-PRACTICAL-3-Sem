@@ -1,0 +1,7 @@
+x = c("nik","rao","vicky","mai","rockstar","ball","best","good","logic","weekend","contain")
+print("Original Vectors:")
+print(x)
+print("Sort in ascending order:")
+print(sort(x))
+print("Sort in descending order:")
+print(sort(x, decreasing=TRUE))
